@@ -1,0 +1,33 @@
+  
+   Technical Document for Assignment 1A
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+   Jarryd Morrison
+   Created on 8/26/2024
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Description:
+This program is designed to sell 20 total tickets and to keep track of how many buyers there were. In addition to this no buyer is able to purchase
+more than 4 tickets or less than 0, the program would continue to run until there are 0 tickets remaining to be purchased. After all tickets have been sold,
+the program displays the number of buyers.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+   Logical Steps:
+1. The program sets a value of 20 to the variable TICKETS and a value of 0 to the variable BUYERS_COUNTS.
+2.Program prints out the total number of TICKETS.
+3.Program sets a loop as long as TICKETS > 0 prompting the user to enter the amount of TICKETS they would like to buy, entered value is logged as a variable TO_BUY.
+3.Program sets a conditional to check if the entered value for TO_BUY is < 0,  if it is > 4 or if it is greater than the number of available TICKETS.
+If true, it prints that the user is unable to purchase that many tickets and displays the total number of TICKETS available.
+4.Program checks if the number of TICKETS = 0, if true the program breaks out of the loop and displays the BUYER_COUNT.
+5. Program checks if either if statements are true, if not then the program preforms the calculation to the variables TICKETS and BUYERS_COUNT, then displays
+the number of tickets available.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Variables:
+1.TICKETS, stores the number of tickets available for purchase.
+2.BUYERS_COUNT, stores the number of buyers as the commands are run.
+3.TO_BUY, stores the amount of tickets the user asks to purchase for calculations.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Functions:
+1.Sets up a loop to repeatedly ask how many tickets the user wants as long as the number of tickets is greater than 0.
+2.Conditional statement that checks if the number of tickets being purchases is less than 0 or greater than 4, if true it prints "Sorry, you can't buy that many.".
+3.Conditional statement to check if the number of tickes = 0, if true it breaks the loop, if false it calcualtes the number of tickets sold and number of buyers and repeats loop.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT HUP LINK https://github.com/melichs/COP2373
+
