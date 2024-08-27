@@ -1,0 +1,30 @@
+Technical Document for Assignment 1B
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+   Jarryd Morrison
+   Created on 8/26/2024
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Description:
+This program is designed to take responses from a text document and use them to respond to questions asked in an 8-ball style of responses.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+   Logical Steps:
+1. The program imports the text file.
+2. The program defines the variable for getting responses from the text file.
+3. The program randomizes a choice from the text file.
+4. The program messeges the user to ask a question to the magic 8 ball.
+5. If the user types exit, the program responds with goodbye before ending the loop.
+6. If the user types a question, the program gets a random response from the text file and prints it.
+7. The file loops to ask the user for another question.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Variables:
+1. get_random_responses, defines the path to the text file to get the responses.
+2. responses, defines the lines in the text document.
+3. QUESTION, asks the user for a question to type in.
+4. random_response, grabs a random line from variable get_random_response.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Functions:
+1.Opens the text file and reads the responses.
+2.returns a random response from the text file.
+3.If the response to the input is exit then the loop breaks.
+4.If the response to the input is not exit, prints a random response and loops back.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT HUP LINK https://github.com/melichs/COP2373
