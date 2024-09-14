@@ -1,0 +1,32 @@
+Technical Document for Assignment 2A
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+   Jarryd Morrison
+   Created on 9/14/2024
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Description:
+This program is a spam detection program that analyzes an email message and determines how likely it is to be a spam message. The program looks for commonly
+used phrases used in spam messages and calculates the likelihood of the message being spam based on the amount of spam phrases used in the message.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+   Logical Steps:
+1. Input the message: The program promts the user to imput an email message.
+2. Scan for spam words: The program converts the message to lower case and checks for occurence of the 30 spam-related words in the list.
+3. Calculate spam score: Everytime a spam word or phrase is located, the spam score is increased by 1.
+4. Identifying trigger words: The program keeps track of all the spam words or phrases that were detected in the message.
+5. Determining likelyhood of spam: Based on the spam score, the program assigns a rating of how likely the message is to be spam (from very unlikely, to very likely).
+6. Display results: The program outputs the total spam score, the likelihood that the message is spam, and the spam words or phrases that were found in the message.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Variables:
+1. spam_keywords: List of strings, this variable is a list of 30 common spam words found in emails, it is used to scan the user's message to identify potential spam.
+2. spam_score: Integer, this variable tracks the number of spam words used in the email message, it is used to determine the likelihood of the message being spam.
+3. triggering_words: list of strings, this variable contains a list of spam-related phrases found in the user's message, it is used to store the specific keywords that
+were flagged as potential spam.
+4. message_lower: string type, this variable is a lowercase version of the email message of the user's input, it is used to convert the email message into lowercase to ensure
+the keywords are case sensative.
+5. user_message: string type, this variable is the message provided by the user, it is used as the raw email message to be analyzed for spam likelihood.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Functions:
+1.calculate_spam_score(message): This function calculates how many spam keywords were present in the user's message and returns the spam_score and triggering_words.
+2.spam_likelihood(spam_score): This function determines how likely the message is to be spam based on the messages spam_score.
+3.main(): This function is the main fuction that drives the flow of the program.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT HUP LINK https://github.com/Jarryd-Morrison/COP2373
