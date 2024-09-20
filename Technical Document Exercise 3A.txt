@@ -1,0 +1,34 @@
+Technical Document for Assignment 3A
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   Jarryd Morrison
+   Created on 9/20/2024
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Description:
+This program is designed to track the user's monthly expenses by prompting the user to enter in the name of the expense, and the amount. The program stores all
+of the listed expenses, then displayes the total expenses as well as the hightest expense and the lowest expense.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   Logical Steps:
+1. Prompt for input: The program first prompts the user to input the type and amount of the expense, then loops this for all of the users expenses unless they type done.
+2. Validation: The entered expenses are checked to ensure that it is a valid float number.
+3. Store Expenses: Each entered expense gets stored as a tuple containing the expense type and amount.
+4. Analyze Expenses: After the user finishes entering expenses and types done, the program uses the reduce function to calculate the total expenses as well as the hightest
+and lowest expense based on amount entered.
+5. Display Results: The program displays the total amount spent as well as the type and amount of the highest and lowest expenses.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Variables:
+1. Expenses: list of tuples, it stores the type of the expenses entered by the user, as well as the float for the amount.
+2. expense_type: string type, it stores each type of expense enterd by the user.
+3. amount: float type, it stores the amount associated with a specific expense type.
+4. total_expense: float type, it stores the calculated total of all the expenses.
+5. highest_expense: tuple type, stores the tuple that represents the expense with the highest amount.
+6. lowest_expense: tuple type, stores the tuple that represents the expense with teh lowest amount.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Functions:
+1. get_user_expenses(): This function handles the input process of gathering each expense type input by the user as well as the amount for each expense, this loops until the user types 
+done.
+2. analyz_expenses(): This function processes the list of expenses and calculates the total expense, as well as the highest and lowest expense using the reduce function. It then displays
+the total expenses and the highest and lowest expense and amount back to the user.
+3. main(): This function is the main function that the program follows as it calls for the get_user_expenses() to collect expenses, and then uses the analyze_expenses() to calculate and display
+the results.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT HUP LINK https://github.com/Jarryd-Morrison/COP2373
