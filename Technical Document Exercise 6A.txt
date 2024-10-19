@@ -1,0 +1,29 @@
+Technical Document for Assignment 6A
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   Jarryd Morrison
+   Created on 10/19/2024
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Description:
+The purpose of this program is to test phone numbers, social security numbers, and zip codes entered by the user to test if they are valid codes. The program
+checks this by testing the appropiate length and formats of the entered in information to see if it is accurate.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   Logical Steps:
+1. Prompt the user for Input: The program asks the user to input a phone number, SSN, and a ZIP code.
+2. Validation: The program calls to three separate functions to validate each input ((validate_phone_number(), validate_ssn(), validate_zip_code()).
+3. Regular expressions: Each function uses a regulare expression to determine if the input is valid, if it matches the number is considered valid, if not
+it is considered invalid.
+4. Display Results: The program displays whether each input is valid or invalid to the user.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Variables:
+1. phone: A string representing the user's input for the phone number.
+2. ssn: A string representing the user's input for the Social Security Number.
+3. zip_code: A string representing the user's input for the ZIP code.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Functions:
+1. validate_phone_number(phone): This function validates the format of the phone number using regular expression, returning either a valid or invalid for
+the user's input for phone number.
+2. validate_ssn(ssn): This function validates the format for a U.S Social Security Number and returns either a valid or invalid for the user input for ssn.
+3.validate_zip_code(zip_code): This function validates the format of a U.S ZIP code, returning either a valid or invalid response for the user's input for ZIP code.
+4. main(): Calls for the user to input phone number, ssn, and zip code, then calls for the functions to check validity of inputs, then displays whether input was valid or invalid.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT HUP LINK https://github.com/Jarryd-Morrison/COP2373
