@@ -1,0 +1,79 @@
+Technical Design Document CSV
+Jarryd Morrison
+10/25/24
+
+Program Description:
+
+This program is designed to collect student data and write it into a CSV file, grades.csv.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+1. collect_student_data
+
+Description:
+Prompts the user to enter the number of students and gathers each student’s first name, last name, and three exam grades. Validates each grade to ensure it is an integer.
+
+Parameters:
+None
+
+Variables:
+
+1.num_students (int): Stores the number of students as entered by the user.
+2.students_data (list of lists): Holds each student’s record (name and grades).
+3.first_name (str): The student's first name.
+4.last_name (str): The student's last name.
+5.exam1, exam2, exam3 (int): Each student's exam grades, validated as integers.
+
+Logic Steps:
+
+1.Prompt the instructor to enter the number of students (num_students).
+2.Initialize an empty list, students_data, to store all student records.
+3.Loop num_students times to gather each student’s details:
+4.Return students_data.
+
+Returns:
+list of lists: Each inner list contains a single student’s first_name, last_name, and three exam grades as [first_name, last_name, exam1, exam2, exam3].
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+2. write_to_csv
+
+Description:
+Writes the collected student data to grades.csv, including a header row (First Name, Last Name, Exam 1, Exam 2, Exam 3).
+
+Parameters:
+students_data (list of lists): Contains all student records with names and grades.
+
+Variables:
+
+1.header (list of str): Defines the column headers for the CSV file.
+2.file (file object): Used to open grades.csv in write mode.
+
+Logic Steps:
+
+1.Define the CSV header as header = ["First Name", "Last Name", "Exam 1", "Exam 2", "Exam 3"].
+2.Open grades.csv in write mode with with open(...) to ensure the file closes automatically.
+3.Use csv.writer to create a writer object for file.
+4.Write the header to the file.
+5.Write all student records from students_data to grades.csv using writer.writerows(students_data).
+
+Returns:
+None (writes data directly to grades.csv).
+
+3. main (Program 1)
+Description:
+Coordinates data collection and CSV writing by calling collect_student_data and write_to_csv.
+
+Parameters:
+None
+
+Variables:
+
+students_data (list of lists): The list of student records returned from collect_student_data.
+Logic Steps:
+
+1.Call collect_student_data to gather student information.
+2.Store the result in students_data.
+3.Pass students_data to write_to_csv to write it to grades.csv.
+4.Print confirmation that the data has been written to the file.
+
+Returns:
+None (coordinates data gathering and file writing).
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT HUP LINK https://github.com/Jarryd-Morrison/COP2373

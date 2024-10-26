@@ -1,0 +1,56 @@
+Technical Design Document CSV read
+Jarryd Morrison
+10/25/24
+
+Program Description:
+
+This program is designed to read the csv file grades.csv and display the data in a tabular form.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+1. read_and_display_csv
+
+Description:
+Reads grades.csv and displays its contents in a formatted, tabular format.
+
+Parameters:
+None
+
+Variables:
+
+1.file (file object): Used to open grades.csv in read mode.
+2.reader (csv.reader object): Reads the CSV file content line by line.
+3.header (list of str): Stores the first row (column headers) of the CSV file.
+4.row (list of str): Each subsequent row in grades.csv, representing a student’s data.
+5.idx (int): The loop counter for displaying row numbers.
+
+Logic Steps:
+
+1.Open grades.csv in read mode with with open(...) to automatically close the file after reading.
+2.Use csv.reader to create a reader object for file.
+3.Read the first row from the CSV file into header.
+4.Loop through the remaining rows in the CSV (row), and for each row:
+5.Handle FileNotFoundError by displaying an error if grades.csv does not exist.
+
+Returns:
+None (outputs data directly to the console in tabular format).
+------------------------------------------------------------------------------------------------------------------------------------------
+2. main ()
+
+Description:
+Calls read_and_display_csv to read and display data from grades.csv.
+
+Parameters:
+None
+
+Variables:
+None
+
+Logic Steps:
+
+1.Call read_and_display_csv.
+2.Display the data if the file is found, or print an error if the file is missing.
+
+Returns:
+None (coordinates the display of data).
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT HUP LINK https://github.com/Jarryd-Morrison/COP2373
