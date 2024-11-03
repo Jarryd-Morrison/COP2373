@@ -1,0 +1,147 @@
+Technical Design Document 9A
+Jarryd Morrison
+11/03/24
+
+Program Description:
+The BankAcct program simulates a simple banking system that allows users to create and manage bank accounts.
+Each account contains information such as the account holder's name, account number, current balance, and interest rate.
+The Program allows methods of adjusting interest rates, depositing and withdrawing funds as well as checking account balance
+over a set amount of days.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Functions Used In Program:
+
+Class: BankAcct
+The BankAcct class encapsulates the properties and behaviors of a bank account.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+__init__ Method
+Description: Initializes a BankAcct instance with the provided attributes.
+
+Parameters:
+1.name (str): The account holder's name.
+2.account_number (str): The unique account number.
+3.amount (float, optional): The initial balance (default is 0.0).
+4.interest_rate (float, optional): The annual interest rate as a decimal (default is 0.02, representing 2%).
+
+Variables:
+1.self.name
+2.self.account_number
+3.self.amount
+4.self.interest_rate
+
+Logical Steps:
+1.Assigns the parameters to the instance variables.
+
+Returns: None (constructor).
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+adjust_interest_rate Method
+
+Description: Adjusts the current interest rate for the account.
+
+Parameters:
+1.new_rate (float): The new interest rate as a decimal.
+
+Variables:
+1.self.interest_rate
+
+Logical Steps:
+1.Sets self.interest_rate to new_rate.
+
+Returns: None.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+deposit Method
+
+Description: Adds a specified amount to the account balance.
+
+Parameters:
+1.amount (float): The amount to be deposited (must be positive).
+
+Variables:
+1.self.amount
+
+Logical Steps:
+1.Checks if amount is greater than 0.
+2.Adds amount to self.amount.
+3.Raises a ValueError if amount is not positive.
+
+Returns: None.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+withdraw Method
+
+Description: Withdraws a specified amount from the account balance.
+
+Parameters:
+1.amount (float): The amount to be withdrawn (must be greater than 0 and less than or equal to the current balance).
+
+Variables:
+1.self.amount
+
+Logical Steps:
+1.Checks if 0 < amount <= self.amount.
+2.Subtracts amount from self.amount.
+3.Raises a ValueError if amount is not valid.
+
+Returns: None.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+get_balance Method
+
+Description: Returns the current balance of the account.
+
+Parameters: None.
+
+Variables:
+1.self.amount
+
+Logical Steps:
+1.Returns self.amount.
+
+Returns: (float) The current balance.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+calculate_interest Method
+
+Description: Calculates interest for a given number of days based on the current balance and interest rate.
+
+Parameters:
+1.days (int): The number of days for which to calculate interest.
+
+Variables:
+1.daily_rate (float): The daily interest rate (self.interest_rate / 365).
+2.interest (float): The calculated interest.
+
+Logical Steps:
+1.Calculates daily_rate as self.interest_rate / 365.
+2.Computes interest as self.amount * daily_rate * days.
+3.Returns interest.
+
+Returns: (float) The calculated interest.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+__str__ Method
+
+Description: Provides a formatted string representation of the account's details and balance.
+
+Parameters: None.
+
+Variables:
+1.Uses self.name, self.account_number, self.amount, and self.interest_rate.
+
+Logical Steps:
+1.Constructs and returns a formatted string that includes account holder details, balance, and interest rate.
+
+Returns: (str) The string representation of the account.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. Test Function: test_bank_acct
+
+Description: A test function to demonstrate and validate the behavior of the BankAcct class methods.
+
+Logical Steps:
+1.Creates an instance of BankAcct.
+2.Prints initial account details using the __str__ method.
+3.Deposits $500 and prints the updated balance.
+4.Withdraws $200 and prints the updated balance.
+5.Calculates and prints the interest for 30 days.
+6.Adjusts the interest rate and prints updated account details.
+
+Returns: None (used for demonstration).
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT HUP LINK https://github.com/Jarryd-Morrison/COP2373
