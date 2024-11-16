@@ -1,0 +1,115 @@
+Technical Design Document 11A
+Jarryd Morrison
+11/16/24
+
+Program Description:
+The program simulates a simplified Poker game that deals a hand of five cards from a standard deck.
+It allows the user to select cards to replace during a "draw" phase and then displays the final hand.
+The user inputs which cards they wish to discard by typing out the number of the card, if there is more
+than one card to be discarded they use a comma to separate it.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+1. Card Class
+Purpose: Represents a single playing card with a suit and rank.
+
+Attributes:
+ suit (int): Encodes the suit of the card (0: Clubs, 1: Diamonds, 2: Hearts, 3: Spades).
+ rank (int): Encodes the rank of the card (1: Ace, 2-10: Number cards, 11: Jack, 12: Queen, 13: King).
+
+Methods:
+ 
+__init__(self, suit=0, rank=2):
+
+ Parameters:
+  suit: The suit of the card (default: 0).
+  rank: The rank of the card (default: 2).
+
+Logical Steps:
+ Assigns the suit and rank to the instance attributes.
+
+Returns: None.
+
+ __str__(self):
+
+Purpose: Provides a string representation of the card (e.g., "Ace of Spades").
+
+Logical Steps:
+Accesses the ranks and suits lists to convert numerical attributes into human-readable strings.
+
+Returns: A formatted string representing the card.
+-----------------------------------------------------------------------------------------------------------------------------------------
+2. Deck Class
+
+Purpose: Manages a collection of 52 cards and provides functionality for shuffling and dealing.
+
+Attributes:
+ cards (list): A list containing Card objects representing all 52 cards in the deck.
+
+Methods:
+
+ __init__(self):
+
+Purpose: Initializes the deck with all 52 unique cards.
+
+ Logical Steps:
+  Iterates through all combinations of suits (0-3) and ranks (1-13).
+  Creates a Card object for each combination and stores it in the cards list.
+
+ Returns: None.
+
+ shuffle(self):
+
+ Purpose: Randomizes the order of the cards in the deck.
+
+ Logical Steps:
+  Uses Python’s random.shuffle function to shuffle the cards list in place.
+
+ Returns: None.
+
+ deal(self, num):
+
+ Purpose: Removes and returns the top num cards from the deck.
+
+ Parameters:
+  num (int): The number of cards to deal.
+
+ Variables:
+  dealt_cards (list): Holds the cards being dealt.
+
+ Logical Steps:
+  Checks if num is greater than the remaining number of cards in the deck.
+  If valid, slices the first num cards from cards and updates the deck.
+
+ Returns: A list of Card objects representing the dealt cards.
+----------------------------------------------------------------------------------------------------------------------------------------
+3. poker_hand_game() Function
+
+Purpose: Simulates a Poker hand game with an initial deal, user input to replace cards, and final hand display.
+
+Logical Steps:
+
+ Deck Initialization:
+  Creates an instance of the Deck class and shuffles it.
+
+ Initial Deal:
+  Deals 5 cards to the player using the deal method of the Deck class.
+  Displays the initial hand with card indices (1-5) for user reference.
+
+ User Input for Replacement:
+  Prompts the user to enter indices (comma-separated) of cards they wish to replace.
+  Validates input:
+   Checks if indices are integers within the range (1-5).
+   Handles invalid input by printing an error message and ending the game.
+
+ Replace Selected Cards:
+  For each valid index provided by the user:
+  Replaces the corresponding card in the hand with a new card from the deck.
+
+ Final Hand Display:
+  Prints the updated hand after the draw phase.
+
+Returns: None.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT HUP LINK https://github.com/Jarryd-Morrison/COP2373
