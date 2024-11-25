@@ -1,0 +1,112 @@
+Technical Design Document 12A
+Jarryd Morrison
+11/24/24
+
+Program Description:
+This Program processes a CSV file named grades.csv containing student exam data. It then conveys the data as a numpy array and calculates
+the mean, median, standard deviation, minimum, and maximum values for each exam, as well as the overall statistics for all the exams. It also
+states the pass percentage for each exam based on if a students score was below 60%.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+1. load_data(file_name)
+
+Description:
+ Loads the CSV file and extracts only the columns containing exam grades (columns 2, 3, and 4).
+
+Parameters:
+ file_name (str): The name of the CSV file to load.
+
+Variables:
+ data (numpy.ndarray): A 2D array containing the exam grades.
+
+Logical Steps:
+ 1.Use np.genfromtxt() to load the data from the specified file.
+ 2.Skip the header row (skip_header=1) and select only columns 2, 3, and 4 (usecols=(2, 3, 4)).
+ 3.Return the loaded exam grades as a 2D numpy array.
+
+Returns:
+ A 2D numpy array containing the exam grades.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+2. calculate_statistics(data, label="Exam")
+
+Description:
+ Calculates and displays statistics (mean, median, standard deviation, minimum, and maximum) for a given dataset.
+
+Parameters:
+ 1.data (numpy.ndarray): A 1D array containing grades for a single exam.
+ 2.label (str): A label for the dataset, default is "Exam".
+
+Variables:
+ None (all calculations use temporary variables).
+
+Logical Steps:
+ 1.Calculate the mean using np.mean(data).
+ 2.Calculate the median using np.median(data).
+ 3.Calculate the standard deviation using np.std(data).
+ 4.Find the minimum value using np.min(data).
+ 5.Find the maximum value using np.max(data).
+ 6.Print the calculated statistics with appropriate labels.
+
+Returns:
+ None (results are printed directly).
+---------------------------------------------------------------------------------------------------------------------------------------------------
+3. calculate_pass_fail(data)
+
+Description:
+ Determines the number of students who passed and failed based on their grades.
+
+Parameters:
+ data (numpy.ndarray): A 1D array containing grades for a single exam.
+
+Variables:
+ 1.passed (int): The number of grades ≥ 60.
+ 2.failed (int): The number of grades < 60.
+
+Logical Steps:
+ 1.Count the number of grades ≥ 60 using np.sum(data >= 60).
+ 2.Count the number of grades < 60 using np.sum(data < 60).
+ 3.Return the counts for passed and failed students.
+
+Returns:
+ 1.A tuple (passed, failed) where:
+ 2.passed (int): The count of passing grades.
+ 3.failed (int): The count of failing grades.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. main()
+
+Description:
+ The main driver function orchestrates the entire program, handling data loading, calculations, and outputs.
+
+Parameters:
+ None.
+
+Variables:
+ 1.file_name (str): The name of the CSV file ('grades.csv').
+ 2.data (numpy.ndarray): The loaded dataset containing exam grades.
+ 3.num_exams (int): The number of exam columns in the dataset.
+ 4.total_passed (int): The cumulative count of passing grades across all exams.
+ 5.total_grades (int): The total number of grades in the dataset.
+ 6.exam_data (numpy.ndarray): A 1D array representing grades for a single exam.
+ 7.passed (int): The count of passing grades for the current exam.
+ 8.failed (int): The count of failing grades for the current exam.
+ 9.overall_pass_percentage (float): The percentage of all grades that are passing.
+
+Logical Steps:
+ 1.Set the file_name to 'grades.csv'.
+ 2.Call load_data(file_name) to load the exam grades.
+ 3.Print the first five rows of data for preview.
+ 4.Initialize total_passed to 0 and calculate total_grades as the size of the dataset.
+ 5.Iterate over each column of data:
+ 6.Extract the grades for the current exam into exam_data.
+ 7.Call calculate_statistics(exam_data, label=f"Exam {i + 1}") to print statistics.
+ 8.Call calculate_pass_fail(exam_data) to get passed and failed counts.
+ 9.Update total_passed with passed.
+ 10.Print the pass/fail counts.
+ 11.Call calculate_statistics(data.flatten(), label="All Exams Combined") to calculate overall statistics.
+ 12.Compute overall_pass_percentage as (total_passed / total_grades) * 100.
+ 13.Print the overall pass percentage.
+
+Returns:
+None (results are printed directly).
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT HUP LINK https://github.com/Jarryd-Morrison/COP2373
