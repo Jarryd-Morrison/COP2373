@@ -1,0 +1,115 @@
+Technical Design Document 13_DB
+Jarryd Morrison
+12/01/24
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Program Description
+This program simulates population growth for 10 cities in Florida, stores the data in a SQLite database, and visualizes the growth using Matplotlib. The program:
+- Creates a database (population_JM.db) and initializes it with 2023 population data for 10 cities.
+- Simulates 20 years of population growth at a 2% annual growth rate.
+- Allows users to select a city to visualize its population growth over time.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Function Descriptions
+
+ 1 create_database()
+
+  Description: Creates a SQLite database named population_JM.db and initializes a table called population.
+
+  Parameters: None
+  
+  Variables:
+   -connection: Connection to the SQLite database.
+   -cursor: Cursor object to execute SQL commands.
+
+  Logical Steps:
+   -Establish a connection to population_JM.db.
+   -Create the population table with fields: city, year, and population (if it doesn't already exist).
+   -Commit changes and close the connection.
+
+  Returns: None
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 2 insert_initial_data()
+  
+ Description: Inserts initial population data for 10 cities in Florida for the year 2023.
+
+  Parameters: None
+
+  Variables:
+   -cities_data: List of tuples, each containing city name, year, and population for 2023.
+   -connection: Connection to the SQLite database.
+   -cursor: Cursor object to execute SQL commands.
+
+  Logical Steps:
+   -Define cities_data with hardcoded population data for 2023.
+   -Establish a connection to population_JM.db.
+   -Use executemany() to insert all data into the population table.
+   -Commit changes and close the connection.
+
+  Returns: None
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 3 simulate_population_growth()
+  
+ Description: Simulates a 2% annual growth rate for each city over the next 20 years (2024–2043) and stores the results in the database.
+
+  Parameters: None
+
+  Variables:
+   -connection: Connection to the SQLite database.
+   -cursor: Cursor object to execute SQL commands.
+   -cities: List of unique city names from the database for the year 2023.
+   -initial_population: Starting population for each city in 2023.
+
+  Logical Steps:
+   -Query the database for all unique city names with data for the year 2023.
+   -Loop through each city:
+   -Query the population for the year 2023.
+   -Compute population for the next 20 years using a 2% growth formula: population = population * 1.02.
+   -Insert the year and computed population into the database for each year.
+   -Commit changes and close the connection.
+
+Returns: None
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4 plot_population_growth(city)
+  
+ Description: Retrieves and plots population growth data for a specified city.
+
+  Parameters:
+   -city (str): Name of the city to visualize.
+
+  Variables:
+   -connection: Connection to the SQLite database.
+   -cursor: Cursor object to execute SQL commands.
+   -data: List of tuples containing (year, population) for the selected city.
+   -years: List of years extracted from data.
+   -populations: List of populations extracted from data.
+
+  Logical Steps:
+   -Query the database for year and population data for the given city.
+    -Extract years and populations from the query result.
+   -Use Matplotlib to plot years (x-axis) vs populations (y-axis) with markers and labels.
+   -Display the plot.
+
+Returns: None
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.5 main()
+
+  Description: Main function to orchestrate database creation, data insertion, simulation, and user interaction for visualization.
+
+  Parameters: None
+
+  Variables:
+   -cities: List of valid city names for user selection.
+   -city: User-provided city name for visualization.
+  
+  Logical Steps:
+   -Call create_database() to initialize the database.
+   -Call insert_initial_data() to populate the database with 2023 data.
+   -Call simulate_population_growth() to compute population growth for 2024–2043.
+   -Display a list of valid city names to the user.
+   -Enter a loop to prompt the user for a city name:
+   -If valid, call plot_population_growth(city).
+   -If the user types "exit", terminate the program.
+   -If invalid, display an error message and reprompt.
+
+  Returns: None
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT HUP LINK https://github.com/Jarryd-Morrison/COP2373
